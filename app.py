@@ -6,8 +6,21 @@ import threading
 import numpy as np
 from keras.models import load_model
 from keras.models import model_from_json
+import pandas as pd
+from nltk.tokenize import word_tokenize
+import re
+
+import tensorflow as tf
 from keras.preprocessing.text import Tokenizer
 from keras.preprocessing.sequence import pad_sequences
+
+csv_path_train = 'data_train.csv'
+csv_path_test = 'data_test.csv'
+
+data_train = pd.read_csv(csv_path_train, encoding='utf-8')
+data_test = pd.read_csv(csv_path_test, encoding='utf-8')
+data = pd.concat([data_train, data_test], ignore_index=True)
+predictor =  tf.keras.models.load_model('Text_Emotion_Detection_BiLSTM.keras', compile=False)
 
 text_emotion = ""
 facial_emotion = ""
@@ -21,25 +34,32 @@ face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_fronta
 facial_labels = {0: 'angry', 1: 'disgust', 2: 'fear', 3: 'happy', 4: 'neutral', 5: 'sad', 6: 'surprise'}
 
 text_model = load_model('Text Emotion Detection (BiLSTM).h5')
-text_class_names = ['joy', 'fear', 'anger', 'sadness', 'neutral']
+text_class_names = ['happy', 'fear', 'anger', 'sad', 'neutral']
 emojis = {
     'angry': '😠', 'disgust': '🤢', 'fear': '😨', 'happy': '😊',
     'neutral': '😐', 'sad': '😢', 'surprise': '😲', 
     'joy': '😊', 'anger': '😠', 'sadness': '😢'
 }
 
+def clean_text(data):
+    data = re.sub(r"(#[\d\w\.]+)", '', data)
+    data = re.sub(r"(@[\d\w\.]+)", '', data)
+    data = word_tokenize(data)
+    return data
+
 def preprocess_text(text, max_len=500):
-    tokenizer = Tokenizer(num_words=5000)
-    tokenizer.fit_on_texts([text])
-    sequence = tokenizer.texts_to_sequences([text])
-    padded_sequence = pad_sequences(sequence, maxlen=max_len)
+    texts = [' '.join(clean_text(text)) for text in data.Text]
+    tokenizer = Tokenizer()
+    tokenizer.fit_on_texts(texts)
+    seq = tokenizer.texts_to_sequences([text])
+    padded_sequence = pad_sequences(seq, maxlen=max_len)
     return padded_sequence
 
 def predict_text_emotion():
     global text_emotion
     text = text_input.get()
     processed_text = preprocess_text(text)
-    prediction = text_model.predict(processed_text)
+    prediction = predictor.predict(processed_text)
     predicted_emotion_idx = np.argmax(prediction, axis=1)[0]
     text_emotion = text_class_names[predicted_emotion_idx]
     text_emotion_label.config(text=f"Emotion: {text_emotion}")
@@ -51,7 +71,6 @@ def compare_emotions():
         match_status_label.config(text=f"Match Status: {match_status}")
         emoji_label.config(text=emoji_to_show)
     root.after(500, compare_emotions)
-
 
 def update_image():
     global facial_emotion
@@ -112,10 +131,8 @@ match_status_label.grid(row=0, column=0, sticky=tk.W)
 emoji_label = ttk.Label(status_frame, text="", font=("Helvetica", 36))
 emoji_label.grid(row=0, column=1, sticky=tk.W)
 
-
 compare_emotions_thread = threading.Thread(target=compare_emotions)
 compare_emotions_thread.daemon = True
 compare_emotions_thread.start()
-
 
 root.mainloop()
