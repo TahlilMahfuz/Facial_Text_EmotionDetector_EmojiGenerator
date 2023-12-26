@@ -9,11 +9,10 @@ opencv-contrib-python
 scikit-learn
 keras_preprocessing
 opencv-python
-pillow
+pillo
 numpy
 keras
 pandas
 nltk
 tensorflow
-tk
 matplotlib
