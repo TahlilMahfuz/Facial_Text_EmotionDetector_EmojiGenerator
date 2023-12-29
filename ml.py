@@ -32,7 +32,8 @@ facial_model.load_weights("facialemotionmodel.h5")
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 facial_labels = {0: 'angry', 1: 'disgust', 2: 'fear', 3: 'happy', 4: 'neutral', 5: 'sad', 6: 'surprise'}
 
-# Emojis dictionary
+text_model = load_model('Text Emotion Detection (BiLSTM).h5')
+text_class_names = ['happy', 'fear', 'anger', 'sad', 'neutral']
 emojis = {
     'angry': '😠', 'disgust': '🤢', 'fear': '😨', 'happy': '😊',
     'neutral': '😐', 'sad': '😢', 'surprise': '😲', 
