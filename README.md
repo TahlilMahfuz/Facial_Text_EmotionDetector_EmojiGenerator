@@ -27,13 +27,15 @@ This project combines facial emotion and text sentiment analysis to generate emo
 
     https://colab.research.google.com/drive/1ryjZXFMbpTz-Z6EXAySyBiy5Jd-oFHnL?usp=sharing
 
-## Facial_Emotion_Detection_Dataset_Link
+## Facial_Emotion_Detection_Dataset
 
     https://www.kaggle.com/datasets/jonathanoheix/face-expression-recognition-dataset/
  
-## Text_Emotion_Detector_Dataset_Link
+## Text_Emotion_Detector_Dataset
 
-    Uploaded in the repository. File Names: data_train.csv & data_test.csv 
+    Uploaded in the repository. 
+        Folder Name: TextEmotionDetectionDataset 
+        File Name: data_train.csv & data_test.csv 
 
 ## Train_Facial_Emoiton_Detection_Model
 
