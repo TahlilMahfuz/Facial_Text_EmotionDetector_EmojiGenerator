@@ -8,11 +8,7 @@ tqdm
 opencv-contrib-python
 scikit-learn
 keras_preprocessing
+tk
+Pillow
 opencv-python
-pillo
-numpy
-keras
-pandas
 nltk
-tensorflow
-matplotlib
