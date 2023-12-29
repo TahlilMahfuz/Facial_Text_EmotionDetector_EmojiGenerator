@@ -1,5 +1,6 @@
 ## Emoji Generation Through Facial Emotion and Text Sentiment Analysis
 
+
 ## Table of Contents
 - [Authors](#Authors)
 - [Overview](#Overview)
@@ -13,15 +14,20 @@
 - [Contribution](#contribution)
 
 
+
 ## Authors
 
     Author_1 : K.M. Tahlil Mahfuz Faruk (SID: 200042158)
     Author_2 : Dayan Ahmed Khan (SID: 200042105)
     Author_3 : Shadman Sakib Shoumik (SID: 200042144)
 
+
+
 ## Overview
 
 This project combines facial emotion and text sentiment analysis to generate emojis that match user emotions. The system uses a Convolutional Neural Network (CNN) for facial emotion detection and a Bidirectional Long Short-Term Memory (BiLSTM) model for text emotion detection. The goal is to enhance user experience and communication in digital interactions by accurately reflecting emotions through emojis.
+
+
 
 ## Google_Colab_Link_For_Text_Sentiment_Detection
 
@@ -31,11 +37,15 @@ This project combines facial emotion and text sentiment analysis to generate emo
 
     https://www.kaggle.com/datasets/jonathanoheix/face-expression-recognition-dataset/
  
+
+
 ## Text_Emotion_Detector_Dataset
 
     Uploaded in the repository. 
         Folder Name: TextEmotionDetectionDataset 
         File Name: data_train.csv & data_test.csv 
+
+
 
 ## Train_Facial_Emoiton_Detection_Model
 
@@ -53,6 +63,8 @@ This project combines facial emotion and text sentiment analysis to generate emo
 
     python -u "\path\to\realtime_detection.py"
 
+
+
 ## Train_Text_Emotion_Detector_Model
 
 1. Download the datasets data_test.csv & data_train.csv
@@ -62,11 +74,15 @@ This project combines facial emotion and text sentiment analysis to generate emo
 
 3. Run the Google Colab Notebook Codes
 
+
+
 ## Emoji_Generation
 
-    1. Run the following command to generate emojis:
+1. Run the following command to generate emojis:
 
-        python -u "\path\to\Emoji_Generator.py"
+    python -u "\path\to\Emoji_Generator.py"
+
+
 
 ## Installation
 
@@ -82,6 +98,8 @@ This project combines facial emotion and text sentiment analysis to generate emo
 3. Run the applocation:
 
     python -u "\path\to\Emoji_Generator.py"
+
+
 
 ## Contribution
 
