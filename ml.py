@@ -4,14 +4,15 @@ import cv2
 from PIL import Image, ImageTk
 import threading
 import numpy as np
+from keras.models import load_model
+from keras.models import model_from_json
 import pandas as pd
-import re
 from nltk.tokenize import word_tokenize
+import re
+
 import tensorflow as tf
 from keras.preprocessing.text import Tokenizer
 from keras.preprocessing.sequence import pad_sequences
-from keras.models import model_from_json
-
 # Load and preprocess data
 csv_path_train = 'data_train.csv'
 csv_path_test = 'data_test.csv'
@@ -33,7 +34,7 @@ face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_fronta
 facial_labels = {0: 'angry', 1: 'disgust', 2: 'fear', 3: 'happy', 4: 'neutral', 5: 'sad', 6: 'surprise'}
 
 text_model = load_model('Text Emotion Detection (BiLSTM).h5')
-text_class_names = ['happy', 'fear', 'anger', 'sad', 'neutral']
+text_class_names = ['happy', 'fear', 'angry', 'sad', 'neutral']
 emojis = {
     'angry': '😠', 'disgust': '🤢', 'fear': '😨', 'happy': '😊',
     'neutral': '😐', 'sad': '😢', 'surprise': '😲', 
