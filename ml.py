@@ -11,6 +11,7 @@ import tensorflow as tf
 from keras.preprocessing.text import Tokenizer
 from keras.preprocessing.sequence import pad_sequences
 from keras.models import model_from_json
+from tensorflow.keras.models import load_model
 
 # Load and preprocess data
 csv_path_train = 'data_train.csv'
