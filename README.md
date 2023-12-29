@@ -1,4 +1,4 @@
-## Emoji Generation Through Facial Emotion and Text Sentiment Analysis
+### Emoji Generation Through Facial Emotion and Text Sentiment Analysis
 
 
 ## Table of Contents
