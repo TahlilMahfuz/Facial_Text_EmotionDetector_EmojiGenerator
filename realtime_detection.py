@@ -1,6 +1,6 @@
 import cv2
 from keras.models import model_from_json
-import numpy as numpy
+import numpy as np
 
 json_file = open("facialemotionmodel.json", "r")
 model_json = json_file.read()
