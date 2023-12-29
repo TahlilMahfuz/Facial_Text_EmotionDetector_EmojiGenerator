@@ -8,3 +8,7 @@ tqdm
 opencv-contrib-python
 scikit-learn
 keras_preprocessing
+tk
+Pillow
+opencv-python
+nltk
