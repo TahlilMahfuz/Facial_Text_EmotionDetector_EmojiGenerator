@@ -2,6 +2,7 @@
 
 
 ## Table of Contents
+
 - [Authors](#Authors)
 - [Overview](#Overview)
 - [Google Colab Link For Text Sentiment Detection](#Google_Colab_Link_For_Text_Sentiment_Detection)
