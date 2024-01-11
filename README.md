@@ -97,6 +97,7 @@ This project combines facial emotion and text sentiment analysis to generate emo
 2. Install Depecdencies:
     
     pip install -r packages.txt
+    python -m nltk.downloader punkt
 
 3. Run the applocation:
 
